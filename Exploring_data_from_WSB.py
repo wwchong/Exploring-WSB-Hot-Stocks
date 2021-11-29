@@ -10,9 +10,10 @@ import seaborn as sns
 
 api = PushshiftAPI()
 
-#getting all titles of wallstreetbets community for the past month and save them in list1
+#getting all titles of wallstreetbets community for the past n days and save them in list1
+n = 5
 list1 = []
-start_time = int((datetime.datetime.today()+timedelta(-30)).timestamp())
+start_time = int((datetime.datetime.today()+timedelta(-n)).timestamp())
 submission = list(api.search_submissions(after=start_time,subreddit='wallstreetbets',filter=['url','author','title']))
     
 for sub in submission:
